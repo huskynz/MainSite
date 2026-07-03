@@ -15,7 +15,7 @@
 
 This site is built in .Net  and is the new main site for HuskyNZ where I can share what I know and about who I am
 
-
+You can use the contact form on the site or my email to submit issues, an issues tracker will be avaible soon
 ## Built With
 
 - [Dotnet](https://dotnet.microsoft.com/en-us/)
