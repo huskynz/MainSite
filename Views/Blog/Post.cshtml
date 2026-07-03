@@ -1,0 +1,28 @@
+@model _12.Models.BlogPost
+@{
+    ViewData["Title"] = Model.Title;
+}
+<section class="py-20">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <a asp-controller="Blog" asp-action="Index" class="text-husky-purple dark:text-husky-pink hover:underline">
+            &larr; Back to Blog
+        </a>
+
+        <h1 class="text-4xl font-bold mt-4 mb-2 text-gray-900 dark:text-white">
+            @Model.Title
+        </h1>
+
+        <div class="flex items-center gap-3 text-sm text-gray-500 dark:text-gray-400 mb-8">
+            <time datetime="@Model.Date.ToString("yyyy-MM-dd")">@Model.Date.ToString("MMMM d, yyyy")</time>
+            @if (Model.Tags.Count > 0)
+            {
+                <span>&middot;</span>
+                <span>@string.Join(", ", Model.Tags)</span>
+            }
+        </div>
+
+        <div class="prose dark:prose-invert max-w-none">
+            @Html.Raw(Model.HtmlContent)
+        </div>
+    </div>
+</section>

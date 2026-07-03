@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - HuskyNZ | Peter Gallwas</title>
+    <meta name="description" content="Solutions Architect &amp; Technology Enthusiast" />
+    <link rel="icon" type="image/png" href="https://serv.husky.nz/logo/default.png" />
+    <link rel="manifest" href="~/site.webmanifest" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body class="antialiased min-h-screen flex flex-col bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
+    <partial name="_GridBackground" />
+    <div class="flex-1 flex flex-col">
+        <partial name="_Nav" />
+        <main class="flex-1 flex flex-col">
+            @RenderBody()
+        </main>
+    </div>
+    <partial name="_Footer" />
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

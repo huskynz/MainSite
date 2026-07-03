@@ -1,0 +1,26 @@
+@{
+    const string Version = "12.0.0";
+}
+<footer class="w-full mt-auto py-6 text-sm text-gray-500 dark:text-gray-400 backdrop-blur-sm">
+    <div class="relative">
+        <div class="absolute left-4 top-1/2 -translate-y-1/2">
+            <a href="" target="_blank" rel="noopener noreferrer"
+               class="hover:text-husky-purple dark:hover:text-husky-pink transition-colors">
+                v@(Version)
+            </a>
+        </div>
+
+        <div class="text-center">
+            <div class="mb-1">
+                <a href="https://legal.husky.nz/toc" class="hover:underline mx-2">Terms</a>|
+                <a href="https://legal.husky.nz/Privacy-Policy" class="hover:underline mx-2">Privacy</a>
+            </div>
+            <div>
+                <a href="" target="_blank" rel="noopener noreferrer"
+                   class="hover:text-husky-purple dark:hover:text-husky-pink transition-colors">
+                    &copy; @DateTime.UtcNow.Year HuskyNZ. Licensed under the MIT open source license
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
