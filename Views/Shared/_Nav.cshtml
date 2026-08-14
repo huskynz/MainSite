@@ -1,0 +1,36 @@
+@{
+    var controller = ViewContext.RouteData.Values["controller"]?.ToString() ?? "";
+
+    const string BaseClass = "px-5 py-2 rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400";
+    const string ActiveClass = "bg-husky-purple text-white shadow-md";
+    const string InactiveClass = "text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-husky-blue dark:hover:text-husky-pink";
+
+    string LinkClass(string forController) =>
+        $"{BaseClass} {(string.Equals(controller, forController, StringComparison.OrdinalIgnoreCase) ? ActiveClass : InactiveClass)}";
+}
+<nav class="w-full py-2 px-4 flex flex-wrap items-center justify-between md:justify-start gap-2 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-md fixed top-0 left-0 z-50 border-b border-gray-200 dark:border-gray-800">
+    <div class="flex flex-col items-start gap-1 min-w-max leading-tight">
+        <a href="/" class="block"><partial name="_Logo" model="(50, 50)" /></a>
+    </div>
+
+    <button type="button" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links"
+            class="md:hidden p-2 rounded-lg @InactiveClass">
+        <svg id="nav-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg id="nav-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+    </button>
+
+    <div id="nav-links" class="hidden md:flex w-full md:w-auto md:flex-1 md:justify-center"
+         data-nav-active-class="@ActiveClass" data-nav-inactive-class="@InactiveClass">
+        <div class="flex flex-col md:flex-row gap-1 md:gap-3 lg:gap-6 text-sm font-semibold items-stretch md:items-center w-full md:w-auto py-2 md:py-0">
+            <a href="/#home" data-section="home" class="@LinkClass("Home") text-center">Home</a>
+            <a href="/#about" data-section="about" class="@BaseClass @InactiveClass text-center">About</a>
+            <a href="/#contact" data-section="contact" class="@BaseClass @InactiveClass text-center">Contact</a>
+            <a href="/Timeline" class="@LinkClass("Timeline") text-center">Timeline</a>
+            <a href="/Blog" class="@LinkClass("Blog") text-center">Blog</a>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,32 @@
+@model string
+@{
+    ViewData["Title"] = "404 - Page Not Found";
+}
+<section class="flex-1 flex items-center justify-center py-20">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p class="text-sm font-semibold text-husky-purple dark:text-husky-pink uppercase tracking-widest">
+            404 error
+        </p>
+        <h1 class="mt-4 text-5xl sm:text-6xl font-bold text-gray-900 dark:text-white">
+            Page not found
+        </h1>
+        <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">
+            The page <code class="px-1.5 py-0.5 rounded bg-gray-100 dark:bg-gray-800 text-sm">@Model</code> doesn't exist or may have been moved.
+        </p>
+
+        <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+            <a asp-controller="Home" asp-action="Index"
+               class="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-husky-purple dark:bg-husky-pink text-white font-semibold shadow-md hover:opacity-90 transition-opacity">
+                Back to home
+            </a>
+            <a asp-controller="Timeline" asp-action="Index"
+               class="inline-flex items-center justify-center px-6 py-3 rounded-lg border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white font-semibold hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                View timeline
+            </a>
+            <a asp-controller="Blog" asp-action="Index"
+               class="inline-flex items-center justify-center px-6 py-3 rounded-lg border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white font-semibold hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                Read the blog
+            </a>
+        </div>
+    </div>
+</section>

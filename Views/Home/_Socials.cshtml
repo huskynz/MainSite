@@ -1,0 +1,30 @@
+@using _12.Models
+<section class="py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-4xl font-bold mb-8 text-center text-gray-900 dark:text-white">
+            Connect With Me
+        </h2>
+        <p class="text-center text-gray-600 dark:text-gray-300 mb-12">
+            Feel free to reach out via email or connect on social media.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            @foreach (var social in SocialLink.All)
+            {
+                <a href="@social.Href" target="_blank" rel="noopener noreferrer"
+                   class="flex items-center gap-4 p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-all transform hover:-translate-y-1 border border-gray-200 dark:border-gray-700">
+                    <div class="flex-1">
+                        <div class="font-semibold text-gray-900 dark:text-white">
+                            @social.Name
+                        </div>
+                        <div class="text-husky-purple dark:text-husky-pink text-sm">
+                            @social.Text
+                        </div>
+                    </div>
+                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </a>
+            }
+        </div>
+    </div>
+</section>
