@@ -1,0 +1,50 @@
+@model IReadOnlyList<_12.Models.BlogPost>
+
+@{
+    ViewData["Title"] = "Blog";
+}
+
+<section class="py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-4xl font-bold mb-12 text-center text-gray-900 dark:text-white">
+            Blog
+        </h2>
+
+        @if (Model.Any())
+        {
+            <div class="space-y-6">
+                @foreach (var post in Model)
+                {
+                    <a asp-controller="Blog" asp-action="Post" asp-route-slug="@post.Slug"
+                           class="block p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-all transform hover:-translate-y-1 border border-gray-200 dark:border-gray-700">
+                        <h3 class="text-2xl font-bold text-husky-purple dark:text-husky-pink mb-2">
+                            @post.Title
+                        </h3>
+                        <p class="text-gray-700 dark:text-gray-300 mb-3">
+                            @post.Summary
+                        </p>
+                        <div class="flex items-center gap-3 text-sm text-gray-500 dark:text-gray-400">
+                            <time datetime="@post.Date.ToString("yyyy-MM-dd")">@post.Date.ToString("MMMM d, yyyy")</time>
+                            @if (post.Tags.Count > 0)
+                            {
+                                <span>&middot;</span>
+                                <span>@string.Join(", ", post.Tags)</span>
+                            }
+                        </div>
+                    </a>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="text-center py-12">
+                <h3 class="text-2xl font-semibold text-gray-700 dark:text-gray-300">
+                    No Blog Posts Yet
+                </h3>
+                <p class="mt-2 text-gray-500 dark:text-gray-400">
+                    Check back soon for new posts.
+                </p>
+            </div>
+        }
+    </div>
+</section>
