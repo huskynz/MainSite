@@ -1,0 +1,25 @@
+@{
+}
+<footer class="w-full mt-auto py-6 text-sm text-gray-500 dark:text-gray-400 backdrop-blur-sm">
+    <div class="relative">
+        <div class="absolute left-4 top-1/2 -translate-y-1/2">
+            <a href="https://github.com/huskynz/MainSite" target="_blank" rel="noopener noreferrer"
+               class="hover:text-husky-purple dark:hover:text-husky-pink transition-colors">
+                @($"v{System.Reflection.Assembly.GetExecutingAssembly().GetName().Version}")
+            </a>
+        </div>
+
+        <div class="text-center">
+            <div class="mb-1">
+                <a href="https://legal.husky.nz/toc" class="hover:underline mx-2">Terms</a>|
+                <a href="https://legal.husky.nz/Privacy-Policy" class="hover:underline mx-2">Privacy</a>
+            </div>
+            <div>
+                <a href="https://github.com/huskynz/MainSite" target="_blank" rel="noopener noreferrer"
+                   class="hover:text-husky-purple dark:hover:text-husky-pink transition-colors">
+                    &copy; @DateTime.UtcNow.Year HuskyNZ. Public mirror of Source is on Github
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
